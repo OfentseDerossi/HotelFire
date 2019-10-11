@@ -1,0 +1,85 @@
+<!--
+  Generated template for the HotelmainPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Hotel Main Page</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="body">
+  <img [src]="image" alt="">
+  
+  <button (click)="takePhoto(0)" class="img">Choose File</button>
+  <ion-input [(ngModel)]="hotel.name" placeholder="Hotel Name:" class="inputt"></ion-input>
+  <ion-input [(ngModel)]="hotel.desc" placeholder="Description:" class="inputt"></ion-input>
+  <ion-input [(ngModel)]="hotel.price" placeholder="Price:" class="inputt"></ion-input>
+  <ion-input [(ngModel)]="hotel.full_desc" placeholder="Full Description:" class="inputt"></ion-input>
+  <ion-input [(ngModel)]="hotel.bathroom" placeholder="Bathroom:" class="inputt"></ion-input>
+  
+    <!-- <textarea rows="4" cols="50" [(ngModel)]="hotel.facilities" placeholder="Full Facilities:" class="inputt">
+    
+      </textarea> -->
+
+      <ion-list>
+        <ion-item>
+          <ion-label>Amenities</ion-label>
+          <ion-select [(ngModel)]="hotel.Amenities" multiple="true" cancelText="Nah" okText="Okay!">
+            <ion-option value="Separate work area" selected="true">Separate work area</ion-option>
+            <ion-option value="Hairdryer">Hairdryer Olives</ion-option>
+            <ion-option value="24-hour room service" selected="true">24-hour room service Cheese</ion-option>
+            <ion-option value="Coffee maker">Coffee maker</ion-option>
+            <ion-option value="25 inch or larger TV">25 inch or larger TV</ion-option>
+            <ion-option value="Cable/satellite TV channels">Cable/satellite TV channels</ion-option>
+            <ion-option value="High-speed Internet access">High-speed Internet access</ion-option>
+            <ion-option value="Robes">Robes</ion-option>
+            <ion-option value="Cordless phone">Cordless phone</ion-option>
+            <ion-option value="Balcony">Balcony</ion-option>
+            <ion-option value="Wardrobe">Wardrobe or Closet</ion-option>
+            <ion-option value="Microwave">Microwave</ion-option>
+            <ion-option value="Refrigerator">Refrigerator</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+
+      <!-- <ion-item>
+        <ion-label>Highlights</ion-label>
+        <ion-select multiple="true" [(ngModel)]="hotel.highlights" >
+          <ion-option *ngFor="let highlight of highlights;" value="{{highlight}}">{{highlight}}</ion-option>
+        </ion-select>
+      </ion-item>
+ 
+  ​
+        <br>
+        <ion-item>
+            <ion-label>Facilities</ion-label>
+            <ion-select multiple="true" [(ngModel)]="room.facilities" >
+              <ion-option *ngFor="let facilitiy of facilities" value="{{facilities}}">{{facilities}}</ion-option>
+              </ion-select>
+          </ion-item>
+          <div class="error" *ngFor="let validate of validation_messages.amenities">
+            <div class="messages" *ngIf="addroomForm.get('facilities').hasError(validate.type) && (addroomForm.get('amenities').dirty || addroomForm.get('facilities').touched)">
+              {{validate.message}}
+            </div>
+          </div> -->
+
+      <textarea rows="4" cols="50" [(ngModel)]="hotel.parking" placeholder="Parking Availability:" class="inputt">
+    
+      </textarea>
+  
+  
+  <button ion-button full (click) = "addItem()">Add Room</button>
+  
+  <button (click)="upload()">Upload</button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items" (click)="editItem(item.key)">
+     {{item.name}} 
+
+    </ion-item>
+  </ion-list>
+
+</ion-content>

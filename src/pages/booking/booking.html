@@ -1,0 +1,154 @@
+<!--
+  Generated template for the BookingPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Booking</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="main">
+<!-- 
+    <div class="radio-btn">
+        <a class="one">Do you require meals</a>
+        <input type="radio" class="btn" name="check"><span>Yes</span>
+        <input type="radio" class="btn" name="check"><span>No</span>
+      
+      </div>
+
+ 
+
+    <div class="booking-form">
+
+      <div class="booking-form1">
+          <div class="input-grp">
+              <ion-label stacked>Check-In</ion-label>
+              <ion-input 
+              type="date" 
+              [class.invalid]="!bookingForm.controls.date1.valid && blur"
+              [(ngModel)]="bookings.date1"
+              [formControl]="bookingForm.controls['date1']"
+              min="2019-08-15"
+              max="2020-08-15"></ion-input>
+            </div>
+      
+            <div class="input-grp">
+                <ion-label stacked>Check-Out</ion-label>
+                <ion-input 
+                type="date" 
+                [(ngModel)]="bookings.date2"
+                [formControl]="bookingForm.controls['date2']"></ion-input>
+            </div>
+      </div>
+
+      <div class="booking-form2">
+          <div class="input-grp">
+              <ion-label stacked>Adults</ion-label>
+              <ion-input 
+              type="number" 
+              [(ngModel)]="bookings.adults"
+              [formControl]="bookingForm.controls['number']"></ion-input> 
+            </div>
+      
+            <div class="input-grp">
+                <ion-label stacked>Children</ion-label>
+                <ion-input
+                type="number" 
+                [(ngModel)]="bookings.children"
+                [formControl]="bookingForm.controls['number']"></ion-input>
+            </div>
+      </div>
+
+      <div class="input-grp">
+          <ion-item *ngIf="roomDetails.Name">
+              <ion-label stacked>Room Name</ion-label>
+              <ion-input 
+              type="roomName" 
+              [formControl]="bookingForm.controls['roomName']"
+              [(ngModel)]="bookings.roomName">{{roomDetails.Name}}</ion-input>
+            </ion-item>
+      </div>
+
+      <div class="btn" (click)="PayPage()"> Pay</div>
+
+    </div>  -->
+
+    <p>Booking  Details</p>
+  <!-- </div> -->
+  <form [formGroup]="bookingForm">
+
+  <div class="inputs">
+
+      <div class="dates">
+          <ion-item>
+            <ion-label stacked>Check-In</ion-label>
+            <ion-input 
+            type="date" 
+            [class.invalid]="!bookingForm.controls.date1.valid && blur"
+            [(ngModel)]="bookings.date1"
+            [formControl]="bookingForm.controls['date1']"
+            min="2019-08-15"
+            max="2020-08-15"></ion-input>
+          </ion-item>
+    
+    
+          <ion-item>
+            <ion-label stacked>Check-Out</ion-label>
+            <ion-input 
+            type="date" 
+            [(ngModel)]="bookings.date2"
+            [formControl]="bookingForm.controls['date2']"></ion-input>
+          </ion-item>
+        </div>
+    
+        <div class="guests">
+          <ion-item>
+            <ion-label stacked>Adults</ion-label>
+            <ion-input 
+            type="number" 
+            [(ngModel)]="bookings.adults"
+            [formControl]="bookingForm.controls['adults']"></ion-input>
+          </ion-item>
+
+          <div class="nodays">
+            <ion-item>
+              <ion-label stacked>Number Of Days</ion-label>
+              <ion-input 
+              type="number" 
+              [(ngModel)]="bookings.nodays"
+              [formControl]="bookingForm.controls['nodays']"></ion-input>
+            </ion-item>
+          </div>
+    
+          <ion-item>
+            <ion-label stacked>Children</ion-label>
+            <ion-input
+            type="number" 
+            [(ngModel)]="bookings.children"
+            [formControl]="bookingForm.controls['children']"></ion-input>
+          </ion-item>
+        </div>
+    
+        <ion-item *ngIf="roomDetails.Name">
+          <ion-label stacked>Room Name</ion-label>
+          <ion-input 
+          type="roomName" 
+          [formControl]="bookingForm.controls['roomName']"
+          [(ngModel)]="bookings.roomName">{{roomDetails.Name}}</ion-input>
+        </ion-item>
+    
+    
+        <!-- <div class="btn">
+          <button ion-button full color="dark" (click)="createBooking()">Continue</button>
+        </div> -->
+        <button ion-button class="btn" (click)="createBooking()"> Procceed</button>
+    
+      </div> 
+    </form>
+    <!-- </div> -->
+
+
+</ion-content>

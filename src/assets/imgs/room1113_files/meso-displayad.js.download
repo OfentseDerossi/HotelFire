@@ -1,0 +1,256 @@
+!function(e){var t={};function i(s){if(t[s])return t[s].exports;var n=t[s]={i:s,l:!1,exports:{}};return e[s].call(n.exports,n,n.exports,i),n.l=!0,n.exports}i.m=e,i.c=t,i.d=function(e,t,s){i.o(e,t)||Object.defineProperty(e,t,{enumerable:!0,get:s})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,t){if(1&t&&(e=i(e)),8&t)return e;if(4&t&&"object"==typeof e&&e&&e.__esModule)return e;var s=Object.create(null);if(i.r(s),Object.defineProperty(s,"default",{enumerable:!0,value:e}),2&t&&"string"!=typeof e)for(var n in e)i.d(s,n,function(t){return e[t]}.bind(null,n));return s},i.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(t,"a",t),t},i.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},i.p="",i(i.s=46)}([function(e,t,i){"use strict";i.d(t,"f",function(){return s}),i.d(t,"g",function(){return n}),i.d(t,"b",function(){return o}),i.d(t,"a",function(){return a}),i.d(t,"d",function(){return d}),i.d(t,"c",function(){return h}),i.d(t,"e",function(){return c});
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const s=`{{lit-${String(Math.random()).slice(2)}}}`,n=`\x3c!--${s}--\x3e`,r=new RegExp(`${s}|${n}`),o="$lit$";class a{constructor(e,t){this.parts=[],this.element=t;let i=-1,n=0;const a=[],d=t=>{const l=t.content,u=document.createTreeWalker(l,133,null,!1);let p=0;for(;u.nextNode();){i++;const t=u.currentNode;if(1===t.nodeType){if(t.hasAttributes()){const a=t.attributes;let d=0;for(let e=0;e<a.length;e++)a[e].value.indexOf(s)>=0&&d++;for(;d-- >0;){const s=e.strings[n],a=c.exec(s)[2],d=a.toLowerCase()+o,h=t.getAttribute(d).split(r);this.parts.push({type:"attribute",index:i,name:a,strings:h}),t.removeAttribute(d),n+=h.length-1}}"TEMPLATE"===t.tagName&&d(t)}else if(3===t.nodeType){const e=t.data;if(e.indexOf(s)>=0){const s=t.parentNode,o=e.split(r),d=o.length-1;for(let e=0;e<d;e++)s.insertBefore(""===o[e]?h():document.createTextNode(o[e]),t),this.parts.push({type:"node",index:++i});""===o[d]?(s.insertBefore(h(),t),a.push(t)):t.data=o[d],n+=d}}else if(8===t.nodeType)if(t.data===s){const e=t.parentNode;null!==t.previousSibling&&i!==p||(i++,e.insertBefore(h(),t)),p=i,this.parts.push({type:"node",index:i}),null===t.nextSibling?t.data="":(a.push(t),i--),n++}else{let e=-1;for(;-1!==(e=t.data.indexOf(s,e+1));)this.parts.push({type:"node",index:-1})}}};d(t);for(const e of a)e.parentNode.removeChild(e)}}const d=e=>-1!==e.index,h=()=>document.createComment(""),c=/([ \x09\x0a\x0c\x0d])([^\0-\x1F\x7F-\x9F \x09\x0a\x0c\x0d"'>=/]+)([ \x09\x0a\x0c\x0d]*=[ \x09\x0a\x0c\x0d]*(?:[^ \x09\x0a\x0c\x0d"'`<>=]*|"[^"]*|'[^']*))$/},function(e,t,i){"use strict";i.d(t,"a",function(){return c}),i.d(t,"d",function(){return u}),i.d(t,"b",function(){return p}),i.d(t,"e",function(){return m}),i.d(t,"c",function(){return y});var s=i(6),n=i(3),r=i(2),o=i(9),a=i(5),d=i(0);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const h=e=>null===e||!("object"==typeof e||"function"==typeof e);class c{constructor(e,t,i){this.dirty=!0,this.element=e,this.name=t,this.strings=i,this.parts=[];for(let e=0;e<i.length-1;e++)this.parts[e]=this._createPart()}_createPart(){return new l(this)}_getValue(){const e=this.strings,t=e.length-1;let i="";for(let s=0;s<t;s++){i+=e[s];const t=this.parts[s];if(void 0!==t){const e=t.value;if(null!=e&&(Array.isArray(e)||"string"!=typeof e&&e[Symbol.iterator]))for(const t of e)i+="string"==typeof t?t:String(t);else i+="string"==typeof e?e:String(e)}}return i+=e[t]}commit(){this.dirty&&(this.dirty=!1,this.element.setAttribute(this.name,this._getValue()))}}class l{constructor(e){this.value=void 0,this.committer=e}setValue(e){e===r.a||h(e)&&e===this.value||(this.value=e,Object(s.a)(e)||(this.committer.dirty=!0))}commit(){for(;Object(s.a)(this.value);){const e=this.value;this.value=r.a,e(this)}this.value!==r.a&&this.committer.commit()}}class u{constructor(e){this.value=void 0,this._pendingValue=void 0,this.options=e}appendInto(e){this.startNode=e.appendChild(Object(d.c)()),this.endNode=e.appendChild(Object(d.c)())}insertAfterNode(e){this.startNode=e,this.endNode=e.nextSibling}appendIntoPart(e){e._insert(this.startNode=Object(d.c)()),e._insert(this.endNode=Object(d.c)())}insertAfterPart(e){e._insert(this.startNode=Object(d.c)()),this.endNode=e.endNode,e.endNode=this.startNode}setValue(e){this._pendingValue=e}commit(){for(;Object(s.a)(this._pendingValue);){const e=this._pendingValue;this._pendingValue=r.a,e(this)}const e=this._pendingValue;e!==r.a&&(h(e)?e!==this.value&&this._commitText(e):e instanceof a.b?this._commitTemplateResult(e):e instanceof Node?this._commitNode(e):Array.isArray(e)||e[Symbol.iterator]?this._commitIterable(e):e===r.b?(this.value=r.b,this.clear()):this._commitText(e))}_insert(e){this.endNode.parentNode.insertBefore(e,this.endNode)}_commitNode(e){this.value!==e&&(this.clear(),this._insert(e),this.value=e)}_commitText(e){const t=this.startNode.nextSibling;e=null==e?"":e,t===this.endNode.previousSibling&&3===t.nodeType?t.data=e:this._commitNode(document.createTextNode("string"==typeof e?e:String(e))),this.value=e}_commitTemplateResult(e){const t=this.options.templateFactory(e);if(this.value instanceof o.a&&this.value.template===t)this.value.update(e.values);else{const i=new o.a(t,e.processor,this.options),s=i._clone();i.update(e.values),this._commitNode(s),this.value=i}}_commitIterable(e){Array.isArray(this.value)||(this.value=[],this.clear());const t=this.value;let i,s=0;for(const n of e)void 0===(i=t[s])&&(i=new u(this.options),t.push(i),0===s?i.appendIntoPart(this):i.insertAfterPart(t[s-1])),i.setValue(n),i.commit(),s++;s<t.length&&(t.length=s,this.clear(i&&i.endNode))}clear(e=this.startNode){Object(n.b)(this.startNode.parentNode,e.nextSibling,this.endNode)}}class p{constructor(e,t,i){if(this.value=void 0,this._pendingValue=void 0,2!==i.length||""!==i[0]||""!==i[1])throw new Error("Boolean attributes can only contain a single expression");this.element=e,this.name=t,this.strings=i}setValue(e){this._pendingValue=e}commit(){for(;Object(s.a)(this._pendingValue);){const e=this._pendingValue;this._pendingValue=r.a,e(this)}if(this._pendingValue===r.a)return;const e=!!this._pendingValue;this.value!==e&&(e?this.element.setAttribute(this.name,""):this.element.removeAttribute(this.name)),this.value=e,this._pendingValue=r.a}}class m extends c{constructor(e,t,i){super(e,t,i),this.single=2===i.length&&""===i[0]&&""===i[1]}_createPart(){return new f(this)}_getValue(){return this.single?this.parts[0].value:super._getValue()}commit(){this.dirty&&(this.dirty=!1,this.element[this.name]=this._getValue())}}class f extends l{}let g=!1;try{const e={get capture(){return g=!0,!1}};window.addEventListener("test",e,e),window.removeEventListener("test",e,e)}catch(e){}class y{constructor(e,t,i){this.value=void 0,this._pendingValue=void 0,this.element=e,this.eventName=t,this.eventContext=i,this._boundHandleEvent=(e=>this.handleEvent(e))}setValue(e){this._pendingValue=e}commit(){for(;Object(s.a)(this._pendingValue);){const e=this._pendingValue;this._pendingValue=r.a,e(this)}if(this._pendingValue===r.a)return;const e=this._pendingValue,t=this.value,i=null==e||null!=t&&(e.capture!==t.capture||e.once!==t.once||e.passive!==t.passive),n=null!=e&&(null==t||i);i&&this.element.removeEventListener(this.eventName,this._boundHandleEvent,this._options),n&&(this._options=v(e),this.element.addEventListener(this.eventName,this._boundHandleEvent,this._options)),this.value=e,this._pendingValue=r.a}handleEvent(e){"function"==typeof this.value?this.value.call(this.eventContext||this.element,e):this.value.handleEvent(e)}}const v=e=>e&&(g?{capture:e.capture,passive:e.passive,once:e.once}:e.capture)},function(e,t,i){"use strict";i.d(t,"a",function(){return s}),i.d(t,"b",function(){return n});
+/**
+ * @license
+ * Copyright (c) 2018 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const s={},n={}},function(e,t,i){"use strict";i.d(t,"a",function(){return s}),i.d(t,"c",function(){return n}),i.d(t,"b",function(){return r});
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const s=void 0!==window.customElements&&void 0!==window.customElements.polyfillWrapFlushCallback,n=(e,t,i=null,s=null)=>{let n=t;for(;n!==i;){const t=n.nextSibling;e.insertBefore(n,s),n=t}},r=(e,t,i=null)=>{let s=t;for(;s!==i;){const t=s.nextSibling;e.removeChild(s),s=t}}},function(e,t,i){"use strict";var s=i(1);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */const n=new class{handleAttributeExpressions(e,t,i,n){const r=t[0];return"."===r?new s.e(e,t.slice(1),i).parts:"@"===r?[new s.c(e,t.slice(1),n.eventContext)]:"?"===r?[new s.b(e,t.slice(1),i)]:new s.a(e,t,i).parts}handleTextExpression(e){return new s.d(e)}};var r=i(5),o=(i(6),i(3),i(2),i(8));i(7),i(9),i(0);i.d(t,"b",function(){return a}),i.d(t,"c",function(){return o.b}),i.d(t,"a",function(){return r.b}),
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+(window.litHtmlVersions||(window.litHtmlVersions=[])).push("1.0.0");const a=(e,...t)=>new r.b(e,t,"html",n)},function(e,t,i){"use strict";i.d(t,"b",function(){return r}),i.d(t,"a",function(){return o});var s=i(3),n=i(0);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+class r{constructor(e,t,i,s){this.strings=e,this.values=t,this.type=i,this.processor=s}getHTML(){const e=this.strings.length-1;let t="";for(let i=0;i<e;i++){const e=this.strings[i],s=n.e.exec(e);t+=s?e.substr(0,s.index)+s[1]+s[2]+n.b+s[3]+n.f:e+n.g}return t+this.strings[e]}getTemplateElement(){const e=document.createElement("template");return e.innerHTML=this.getHTML(),e}}class o extends r{getHTML(){return`<svg>${super.getHTML()}</svg>`}getTemplateElement(){const e=super.getTemplateElement(),t=e.content,i=t.firstChild;return t.removeChild(i),Object(s.c)(t,i.firstChild),e}}},function(e,t,i){"use strict";i.d(t,"a",function(){return n});
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const s=new WeakMap,n=e=>"function"==typeof e&&s.has(e)},function(e,t,i){"use strict";i.d(t,"b",function(){return n}),i.d(t,"a",function(){return r});var s=i(0);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */function n(e){let t=r.get(e.type);void 0===t&&(t={stringsArray:new WeakMap,keyString:new Map},r.set(e.type,t));let i=t.stringsArray.get(e.strings);if(void 0!==i)return i;const n=e.strings.join(s.f);return void 0===(i=t.keyString.get(n))&&(i=new s.a(e,e.getTemplateElement()),t.keyString.set(n,i)),t.stringsArray.set(e.strings,i),i}const r=new Map},function(e,t,i){"use strict";i.d(t,"a",function(){return o}),i.d(t,"b",function(){return a});var s=i(3),n=i(1),r=i(7);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const o=new WeakMap,a=(e,t,i)=>{let a=o.get(t);void 0===a&&(Object(s.b)(t,t.firstChild),o.set(t,a=new n.d(Object.assign({templateFactory:r.b},i))),a.appendInto(t)),a.setValue(e),a.commit()}},function(e,t,i){"use strict";i.d(t,"a",function(){return r});var s=i(3),n=i(0);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+class r{constructor(e,t,i){this._parts=[],this.template=e,this.processor=t,this.options=i}update(e){let t=0;for(const i of this._parts)void 0!==i&&i.setValue(e[t]),t++;for(const e of this._parts)void 0!==e&&e.commit()}_clone(){const e=s.a?this.template.element.content.cloneNode(!0):document.importNode(this.template.element.content,!0),t=this.template.parts;let i=0,r=0;const o=e=>{const s=document.createTreeWalker(e,133,null,!1);let a=s.nextNode();for(;i<t.length&&null!==a;){const e=t[i];if(Object(n.d)(e))if(r===e.index){if("node"===e.type){const e=this.processor.handleTextExpression(this.options);e.insertAfterNode(a.previousSibling),this._parts.push(e)}else this._parts.push(...this.processor.handleAttributeExpressions(a,e.name,e.strings,this.options));i++}else r++,"TEMPLATE"===a.nodeName&&o(a.content),a=s.nextNode();else this._parts.push(void 0),i++}};return o(e),s.a&&(document.adoptNode(e),customElements.upgrade(e)),e}}},function(e,t,i){"use strict";var s=i(4),n=i(3),r=i(0);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const o=133;function a(e,t){const{element:{content:i},parts:s}=e,n=document.createTreeWalker(i,o,null,!1);let r=h(s),a=s[r],d=-1,c=0;const l=[];let u=null;for(;n.nextNode();){d++;const e=n.currentNode;for(e.previousSibling===u&&(u=null),t.has(e)&&(l.push(e),null===u&&(u=e)),null!==u&&c++;void 0!==a&&a.index===d;)a.index=null!==u?-1:a.index-c,a=s[r=h(s,r)]}l.forEach(e=>e.parentNode.removeChild(e))}const d=e=>{let t=11===e.nodeType?0:1;const i=document.createTreeWalker(e,o,null,!1);for(;i.nextNode();)t++;return t},h=(e,t=-1)=>{for(let i=t+1;i<e.length;i++){const t=e[i];if(Object(r.d)(t))return i}return-1};var c=i(8),l=i(7),u=i(9),p=i(5);
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+const m=(e,t)=>`${e}--${t}`;let f=!0;void 0===window.ShadyCSS?f=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected.Please update to at least @webcomponents/webcomponentsjs@2.0.2 and@webcomponents/shadycss@1.3.1."),f=!1);const g=["html","svg"],y=new Set,v=(e,t,i)=>{y.add(i);const s=e.querySelectorAll("style");if(0===s.length)return void window.ShadyCSS.prepareTemplateStyles(t.element,i);const n=document.createElement("style");for(let e=0;e<s.length;e++){const t=s[e];t.parentNode.removeChild(t),n.textContent+=t.textContent}if((e=>{g.forEach(t=>{const i=l.a.get(m(t,e));void 0!==i&&i.keyString.forEach(e=>{const{element:{content:t}}=e,i=new Set;Array.from(t.querySelectorAll("style")).forEach(e=>{i.add(e)}),a(e,i)})})})(i),function(e,t,i=null){const{element:{content:s},parts:n}=e;if(null===i||void 0===i)return void s.appendChild(t);const r=document.createTreeWalker(s,o,null,!1);let a=h(n),c=0,l=-1;for(;r.nextNode();)for(l++,r.currentNode===i&&(c=d(t),i.parentNode.insertBefore(t,i));-1!==a&&n[a].index===l;){if(c>0){for(;-1!==a;)n[a].index+=c,a=h(n,a);return}a=h(n,a)}}(t,n,t.element.content.firstChild),window.ShadyCSS.prepareTemplateStyles(t.element,i),window.ShadyCSS.nativeShadow){const i=t.element.content.querySelector("style");e.insertBefore(i.cloneNode(!0),e.firstChild)}else{t.element.content.insertBefore(n,t.element.content.firstChild);const e=new Set;e.add(n),a(t,e)}};
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+window.JSCompiler_renameProperty=((e,t)=>e);const w={toAttribute(e,t){switch(t){case Boolean:return e?"":null;case Object:case Array:return null==e?e:JSON.stringify(e)}return e},fromAttribute(e,t){switch(t){case Boolean:return null!==e;case Number:return null===e?null:Number(e);case Object:case Array:return JSON.parse(e)}return e}},_=(e,t)=>t!==e&&(t==t||e==e),b={attribute:!0,type:String,converter:w,reflect:!1,hasChanged:_},S=Promise.resolve(!0),E=1,x=4,A=8,C=16,P=32;class T extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=S,this._hasConnectedResolver=void 0,this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this.finalize();const e=[];return this._classProperties.forEach((t,i)=>{const s=this._attributeNameForProperty(i,t);void 0!==s&&(this._attributeToPropertyMap.set(s,i),e.push(s))}),e}static _ensureClassProperties(){if(!this.hasOwnProperty(JSCompiler_renameProperty("_classProperties",this))){this._classProperties=new Map;const e=Object.getPrototypeOf(this)._classProperties;void 0!==e&&e.forEach((e,t)=>this._classProperties.set(t,e))}}static createProperty(e,t=b){if(this._ensureClassProperties(),this._classProperties.set(e,t),t.noAccessor||this.prototype.hasOwnProperty(e))return;const i="symbol"==typeof e?Symbol():`__${e}`;Object.defineProperty(this.prototype,e,{get(){return this[i]},set(t){const s=this[e];this[i]=t,this._requestUpdate(e,s)},configurable:!0,enumerable:!0})}static finalize(){if(this.hasOwnProperty(JSCompiler_renameProperty("finalized",this))&&this.finalized)return;const e=Object.getPrototypeOf(this);if("function"==typeof e.finalize&&e.finalize(),this.finalized=!0,this._ensureClassProperties(),this._attributeToPropertyMap=new Map,this.hasOwnProperty(JSCompiler_renameProperty("properties",this))){const e=this.properties,t=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const i of t)this.createProperty(i,e[i])}}static _attributeNameForProperty(e,t){const i=t.attribute;return!1===i?void 0:"string"==typeof i?i:"string"==typeof e?e.toLowerCase():void 0}static _valueHasChanged(e,t,i=_){return i(e,t)}static _propertyValueFromAttribute(e,t){const i=t.type,s=t.converter||w,n="function"==typeof s?s:s.fromAttribute;return n?n(e,i):e}static _propertyValueToAttribute(e,t){if(void 0===t.reflect)return;const i=t.type,s=t.converter;return(s&&s.toAttribute||w.toAttribute)(e,i)}initialize(){this._saveInstanceProperties(),this._requestUpdate()}_saveInstanceProperties(){this.constructor._classProperties.forEach((e,t)=>{if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}})}_applyInstanceProperties(){this._instanceProperties.forEach((e,t)=>this[t]=e),this._instanceProperties=void 0}connectedCallback(){this._updateState=this._updateState|P,this._hasConnectedResolver&&(this._hasConnectedResolver(),this._hasConnectedResolver=void 0)}disconnectedCallback(){}attributeChangedCallback(e,t,i){t!==i&&this._attributeToProperty(e,i)}_propertyToAttribute(e,t,i=b){const s=this.constructor,n=s._attributeNameForProperty(e,i);if(void 0!==n){const e=s._propertyValueToAttribute(t,i);if(void 0===e)return;this._updateState=this._updateState|A,null==e?this.removeAttribute(n):this.setAttribute(n,e),this._updateState=this._updateState&~A}}_attributeToProperty(e,t){if(this._updateState&A)return;const i=this.constructor,s=i._attributeToPropertyMap.get(e);if(void 0!==s){const e=i._classProperties.get(s)||b;this._updateState=this._updateState|C,this[s]=i._propertyValueFromAttribute(t,e),this._updateState=this._updateState&~C}}_requestUpdate(e,t){let i=!0;if(void 0!==e){const s=this.constructor,n=s._classProperties.get(e)||b;s._valueHasChanged(this[e],t,n.hasChanged)?(this._changedProperties.has(e)||this._changedProperties.set(e,t),!0!==n.reflect||this._updateState&C||(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(e,n))):i=!1}!this._hasRequestedUpdate&&i&&this._enqueueUpdate()}requestUpdate(e,t){return this._requestUpdate(e,t),this.updateComplete}async _enqueueUpdate(){let e,t;this._updateState=this._updateState|x;const i=this._updatePromise;this._updatePromise=new Promise((i,s)=>{e=i,t=s});try{await i}catch(e){}this._hasConnected||await new Promise(e=>this._hasConnectedResolver=e);try{const e=this.performUpdate();null!=e&&await e}catch(e){t(e)}e(!this._hasRequestedUpdate)}get _hasConnected(){return this._updateState&P}get _hasRequestedUpdate(){return this._updateState&x}get hasUpdated(){return this._updateState&E}performUpdate(){this._instanceProperties&&this._applyInstanceProperties();let e=!1;const t=this._changedProperties;try{(e=this.shouldUpdate(t))&&this.update(t)}catch(t){throw e=!1,t}finally{this._markUpdated()}e&&(this._updateState&E||(this._updateState=this._updateState|E,this.firstUpdated(t)),this.updated(t))}_markUpdated(){this._changedProperties=new Map,this._updateState=this._updateState&~x}get updateComplete(){return this._updatePromise}shouldUpdate(e){return!0}update(e){void 0!==this._reflectingProperties&&this._reflectingProperties.size>0&&(this._reflectingProperties.forEach((e,t)=>this._propertyToAttribute(t,this[t],e)),this._reflectingProperties=void 0)}updated(e){}firstUpdated(e){}}T.finalized=!0;const N="adoptedStyleSheets"in Document.prototype&&"replace"in CSSStyleSheet.prototype,O=Symbol();class L{constructor(e,t){if(t!==O)throw new Error("CSSResult is not constructable. Use `unsafeCSS` or `css` instead.");this.cssText=e}get styleSheet(){return void 0===this._styleSheet&&(N?(this._styleSheet=new CSSStyleSheet,this._styleSheet.replaceSync(this.cssText)):this._styleSheet=null),this._styleSheet}toString(){return this.cssText}}const R=(e,...t)=>{const i=t.reduce((t,i,s)=>t+(e=>{if(e instanceof L)return e.cssText;throw new Error(`Value passed to 'css' function must be a 'css' function result: ${e}. Use 'unsafeCSS' to pass non-literal values, but\n            take care to ensure page security.`)})(i)+e[s+1],e[0]);return new L(i,O)};i.d(t,"a",function(){return k}),i.d(t,"c",function(){return s.b}),i.d(t,"b",function(){return R}),
+/**
+ * @license
+ * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
+ * This code may only be used under the BSD style license found at
+ * http://polymer.github.io/LICENSE.txt
+ * The complete set of authors may be found at
+ * http://polymer.github.io/AUTHORS.txt
+ * The complete set of contributors may be found at
+ * http://polymer.github.io/CONTRIBUTORS.txt
+ * Code distributed by Google as part of the polymer project is also
+ * subject to an additional IP rights grant found at
+ * http://polymer.github.io/PATENTS.txt
+ */
+(window.litElementVersions||(window.litElementVersions=[])).push("2.0.1");const j=e=>e.flat?e.flat(1/0):function e(t,i=[]){for(let s=0,n=t.length;s<n;s++){const n=t[s];Array.isArray(n)?e(n,i):i.push(n)}return i}(e);class k extends T{static finalize(){super.finalize(),this._styles=this.hasOwnProperty(JSCompiler_renameProperty("styles",this))?this._getUniqueStyles():this._styles||[]}static _getUniqueStyles(){const e=this.styles,t=[];if(Array.isArray(e)){j(e).reduceRight((e,t)=>(e.add(t),e),new Set).forEach(e=>t.unshift(e))}else e&&t.push(e);return t}initialize(){super.initialize(),this.renderRoot=this.createRenderRoot(),window.ShadowRoot&&this.renderRoot instanceof window.ShadowRoot&&this.adoptStyles()}createRenderRoot(){return this.attachShadow({mode:"open"})}adoptStyles(){const e=this.constructor._styles;0!==e.length&&(void 0===window.ShadyCSS||window.ShadyCSS.nativeShadow?N?this.renderRoot.adoptedStyleSheets=e.map(e=>e.styleSheet):this._needsShimAdoptedStyleSheets=!0:window.ShadyCSS.ScopingShim.prepareAdoptedCssText(e.map(e=>e.cssText),this.localName))}connectedCallback(){super.connectedCallback(),this.hasUpdated&&void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this)}update(e){super.update(e);const t=this.render();t instanceof s.a&&this.constructor.render(t,this.renderRoot,{scopeName:this.localName,eventContext:this}),this._needsShimAdoptedStyleSheets&&(this._needsShimAdoptedStyleSheets=!1,this.constructor._styles.forEach(e=>{const t=document.createElement("style");t.textContent=e.cssText,this.renderRoot.appendChild(t)}))}render(){}}k.finalized=!0,k.render=((e,t,i)=>{const s=i.scopeName,o=c.a.has(t),a=t instanceof ShadowRoot&&f&&e instanceof p.b,d=a&&!y.has(s),h=d?document.createDocumentFragment():t;if(Object(c.b)(e,h,Object.assign({templateFactory:(e=>t=>{const i=m(t.type,e);let s=l.a.get(i);void 0===s&&(s={stringsArray:new WeakMap,keyString:new Map},l.a.set(i,s));let n=s.stringsArray.get(t.strings);if(void 0!==n)return n;const o=t.strings.join(r.f);if(void 0===(n=s.keyString.get(o))){const i=t.getTemplateElement();f&&window.ShadyCSS.prepareTemplateDom(i,e),n=new r.a(t,i),s.keyString.set(o,n)}return s.stringsArray.set(t.strings,n),n})(s)},i)),d){const e=c.a.get(h);c.a.delete(h),e.value instanceof u.a&&v(h,e.value.template,s),Object(n.b)(t,t.firstChild),t.appendChild(h),c.a.set(t,e)}!o&&a&&window.ShadyCSS.styleElement(t.host)})},function(e,t,i){"use strict";window.meso=window.meso||{},window.meso.logging=window.meso.logging||[];t.a={info:(e,t)=>{window.meso.logging.push({type:"info",message:e,extra:t})},warn:(e,t)=>{window.meso.logging.push({type:"warn",message:e,extra:t})},error:(e,t)=>{window.meso.logging.push({type:"error",exception:e,extra:t})},trackEvent:(e,t,i)=>{window.meso.logging.push({type:"track-event",name:e,vars:t,events:i})},trackAction:(e,t,i)=>{window.meso.logging.push({type:"track-action",name:e,vars:t,events:i})}}},function(e,t,i){"use strict";t.a=((e,t)=>{if("string"!=typeof e)throw new Error("registerComponent requires a name of type string");if(!t)throw new Error("registerComponent requires a valid component");WebComponents&&WebComponents.waitFor(()=>{window&&customElements&&void 0===customElements.get(e)&&customElements.define(e,t)})})},,,function(e,t,i){(function(t){var i="Expected a function",s=NaN,n="[object Symbol]",r=/^\s+|\s+$/g,o=/^[-+]0x[0-9a-f]+$/i,a=/^0b[01]+$/i,d=/^0o[0-7]+$/i,h=parseInt,c="object"==typeof t&&t&&t.Object===Object&&t,l="object"==typeof self&&self&&self.Object===Object&&self,u=c||l||Function("return this")(),p=Object.prototype.toString,m=Math.max,f=Math.min,g=function(){return u.Date.now()};function y(e){var t=typeof e;return!!e&&("object"==t||"function"==t)}function v(e){if("number"==typeof e)return e;if(function(e){return"symbol"==typeof e||function(e){return!!e&&"object"==typeof e}(e)&&p.call(e)==n}(e))return s;if(y(e)){var t="function"==typeof e.valueOf?e.valueOf():e;e=y(t)?t+"":t}if("string"!=typeof e)return 0===e?e:+e;e=e.replace(r,"");var i=a.test(e);return i||d.test(e)?h(e.slice(2),i?2:8):o.test(e)?s:+e}e.exports=function(e,t,s){var n,r,o,a,d,h,c=0,l=!1,u=!1,p=!0;if("function"!=typeof e)throw new TypeError(i);function w(t){var i=n,s=r;return n=r=void 0,c=t,a=e.apply(s,i)}function _(e){var i=e-h;return void 0===h||i>=t||i<0||u&&e-c>=o}function b(){var e=g();if(_(e))return S(e);d=setTimeout(b,function(e){var i=t-(e-h);return u?f(i,o-(e-c)):i}(e))}function S(e){return d=void 0,p&&n?w(e):(n=r=void 0,a)}function E(){var e=g(),i=_(e);if(n=arguments,r=this,h=e,i){if(void 0===d)return function(e){return c=e,d=setTimeout(b,t),l?w(e):a}(h);if(u)return d=setTimeout(b,t),w(h)}return void 0===d&&(d=setTimeout(b,t)),a}return t=v(t)||0,y(s)&&(l=!!s.leading,o=(u="maxWait"in s)?m(v(s.maxWait)||0,t):o,p="trailing"in s?!!s.trailing:p),E.cancel=function(){void 0!==d&&clearTimeout(d),c=0,n=h=r=d=void 0},E.flush=function(){return void 0===d?a:S(g())},E}}).call(this,i(26))},,,,function(e,t,i){"use strict";t.a={defer:()=>{const e={promise:null,resolve:null,reject:null,isResolved:!1};return e.promise=new Promise((t,i)=>{e.resolve=(i=>{e.isResolved=!0,t(i)}),e.reject=i}),e}}},function(e,t,i){"use strict";var s=i(19);const n=500;let r={},o=[];const a=e=>{e.checkExperiments(r)||o.push(e)},d=e=>{e&&e.detail&&("initialize"!==e.detail.type&&"update"!==e.detail.type||e.detail.experiments&&(r=Object.assign({},r,e.detail.experiments),o=o.filter(e=>!e.checkExperiments(r))))};window&&"function"==typeof window.addEventListener&&window.addEventListener("mesoExperiments",d),window&&"function"==typeof window.dispatchEvent&&window.dispatchEvent(new CustomEvent("mesoExperiments",{detail:{type:"register"}}));t.a=class{constructor(e=[]){this._required=Array.isArray(e)?e:[e],this._TIMEOUT=n,this._completePromise=s.a.defer()}checkExperiments(e){const t=this._required.every(t=>e.hasOwnProperty(t));return t&&this._completePromise.resolve(e),t}exposureLog(e){const t={type:"exposure",experiments:e=(e=e.isArray(e)?e:[e]).map(e=>({name:e}))};window.meso=window.meso||{},window.meso.experiments=window.meso.experiments||[],window.meso.experiments.push(t)}wait(){const e=window&&window.meso&&window.meso.experiments&&window.meso.experiments.configuredExperimentNames||[],t=window&&window.meso&&window.meso.experiments&&window.meso.experiments.configuredOverrideNames||[],i=Array.isArray(e)&&Array.isArray(t)?[...e,...t]:[];if(window&&window.meso&&void 0===window.meso.experiments)return Promise.reject(new Error("window.meso.experiments is not defined"));if(Array.isArray(i)&&0===i.length)return Promise.reject(new Error("No experiments configured for the current target."));if(!this._required.every(e=>i.includes(e)))return Promise.reject(new Error(`Requested experiments were not configured for the current target. Requested: ${this._required} Configured: ${i}`));const s=Promise.race([this._completePromise.promise,new Promise((e,t)=>{setTimeout(()=>{t(`Experiments timed out in ${this._TIMEOUT} before evaluating all required experiments`)},this._TIMEOUT)})]);return a(this),s}get timeout(){return this._TIMEOUT}set timeout(e){this._TIMEOUT=e}}},,function(e,t,i){"use strict";t.a={chunkCallback:e=>requestAnimationFrame&&requestAnimationFrame(e)||setTimeout(e,0)}},,function(e,t,i){"use strict";i.d(t,"a",function(){return n});var s=i(10);class n extends s.a{static get contextChangedAttributes(){return null}static get styles(){return s["b"]`
+      :host([hidden]) {
+        display: none !important;
+      }
+    `}requiresAdContextUpdate(e){const t=this.constructor.contextChangedAttributes;return!(Array.isArray(t)&&t.length>0)||t.some(t=>e.includes(t))}registerAdContext(){"function"==typeof this.adContextChanged&&(this.__adContextDestroyer=window.meso.adcontext.observe(this.constructor.name,e=>this.requiresAdContextUpdate(e),e=>this.adContextChanged(e)))}registerDeliveryListener(){"function"==typeof this.deliveryServiceChanged&&(this.__deliveryDestroyer=window.meso.adcontext.observe(this.constructor.name,e=>e.includes("__delivery-response__"),e=>this.deliveryServiceChanged(e["__delivery-response__"])))}connectedCallback(){super.connectedCallback(),this.registerAdContext(),this.registerDeliveryListener()}disconnectedCallback(){super.disconnectedCallback(),this.__adContextDestroyer&&this.__adContextDestroyer(),this.__deliveryDestroyer&&this.__deliveryDestroyer()}}},,function(e,t){var i;i=function(){return this}();try{i=i||new Function("return this")()}catch(e){"object"==typeof window&&(i=window)}e.exports=i},,function(e,t,i){"use strict";i.d(t,"a",function(){return o});var s=i(15),n=i.n(s),r=i(11);class o{constructor(e,t){this._ad=e,this._timeawayLimit=t,this._refreshcb=n()(e=>{"impressionRefresh"===(e&&e.detail||{}).type&&(this._refreshAds(),r.a.info("ADREFRESH",{type:"showMore",adId:this._ad._id()}))},0,{leading:!1,trailing:!0}),this._outOfFocusRefreshcb=n()(e=>{const t=e&&e.detail||{},i=t&&t.timeaway||0;"impressionRefresh"===t.type&&i>=this._timeawayLimit&&(this._refreshAds(),r.a.info("ADREFRESH",{type:"refocus",timeaway:i,adId:this._ad._id()}))},0,{leading:!1,trailing:!0})}removeListeners(){this._removeEventListener()}attachImpressionRefreshEventListener(){document.addEventListener("mesoTriggeredRefresh",this._refreshcb),document.addEventListener("mesoPageFocus",this._outOfFocusRefreshcb)}_refreshAds(){this._ad.hasAttribute("viewed")&&(this._ad.refreshAd(),this._ad.hasAttribute("inviewport")||(this._ad.removeAttribute("viewed"),this._removeEventListener()))}_removeEventListener(){document.removeEventListener("mesoTriggeredRefresh",this._refreshcb),document.removeEventListener("mesoPageFocus",this._outOfFocusRefreshcb)}}},function(e,t,i){"use strict";i.d(t,"a",function(){return s});class s{constructor(e,t){this._ad=e,this._visibilityTimeoutcb=(()=>setTimeout(()=>{this._ad.setAttribute("viewed",""),t()},1e3)),this._setupViewportListener()}get isVisible(){return this._isVisible}initViewportListener(){this._setupViewportListener()}disconnectViewportListener(){this._viewportListener.disconnect()}_setupViewportListener(){this._viewportListener=new IntersectionObserver(e=>{for(const t of e)t.intersectionRatio>=.5?(this.timeoutId=this._visibilityTimeoutcb(),this._ad.setAttribute("inviewport","")):(clearTimeout(this.timeoutId),this._ad.removeAttribute("inviewport"))},{threshold:[.5]}),this._viewportListener.observe(this._ad)}}},,,,,,,,,,,,,,,,,function(e,t,i){"use strict";i.r(t);var s=i(11),n=i(22);const r=e=>{n.a.chunkCallback(()=>{e&&e.detail&&e.detail.content&&e.detail.content["MESO-DISPLAY-AD"]&&((e,t)=>{const i=t.content["MESO-DISPLAY-AD"],n=(e=>e&&e.config&&e.config.EXPERIMENTS&&e.config.EXPERIMENTS.conditions?e.config.EXPERIMENTS.conditions.map(e=>e.name).join(","):"")(t),r=i||{},o=e.tagName||e;let a;"string"==typeof e?a=document.querySelectorAll(e):e&&"function"==typeof e.setAttribute?a=[e]:(a=[],s.a.error(new Error("Invalid elements. Cannot update attributes"),{mesoInvalidSlot:`${o}`}));a.forEach(e=>{const t=e.getAttribute("uci")||e.getAttribute("slot")||"",i=r[t]&&r[t].attributes||null;null!==i?(e.setAttribute("experiments",n),((e,t,i)=>{i.forEach(i=>{i in t&&(e.hasAttribute(t[i])||e.setAttribute(i,t[i]))})})(e,i,["slot","width","height","path","refocusrefresh","mediaquery"])):s.a.error(new Error("slot was not configured for this page"),{mesoInvalidSlot:`${o}`})})})("meso-display-ad",e.detail)})};window&&window.addEventListener("mesoRender",e=>{r(e)});let o=null;const a=()=>{if(document.hidden)o=new Date;else if(null!==o&&"visible"===document.visibilityState){(e=>{document.dispatchEvent(new CustomEvent("mesoPageFocus",{detail:{type:"impressionRefresh",timeaway:e}}))})((new Date-o)/1e3)}};var d=()=>{document&&void 0!==document.hidden&&document.addEventListener("visibilitychange",a)};window&&(window.addEventListener("message",e=>{const t=e?e.data:null;if(!t||"blankFallback"!==t.error)return;const i=new CustomEvent("mesoCollapseEmptyDisplayAdSlot",{detail:{slot:{path:t.path,height:parseInt(t.height,10),width:parseInt(t.width,10)},collapse:!0}});document.dispatchEvent(i)}),d());var h=i(24),c=i(12),l=i(10),u=i(20);const p="HEADERBIDDING_ENABLED";class m extends h.a{static get properties(){return{enabled:{type:Boolean},height:{type:Number},mediaquery:{type:String},path:{type:String},slot:{type:String},width:{type:Number},uci:{type:String},experiments:{type:String},refocusrefresh:{type:Number}}}constructor(){super(),this.mediaQueryCallback=(e=>{this.enabled=e.matches}),this._experimentsPromise=null,this._headerBiddingEnabled=!1,this._handleMesoAdEvents=this._handleMesoAdEvents.bind(this)}connectedCallback(){super.connectedCallback(),window.meso=window.meso||{},window.meso.initialize=window.meso.initialize||[],window.meso.initialize.push({type:"render"})}firstUpdated(){this._nestedComponent=this.shadowRoot.querySelector("meso-prebid-ad, meso-default-display-ad"),this._nestedComponent&&this._nestedComponent.addEventListener("mesoAd",this._handleMesoAdEvents)}disconnectedCallback(){super.disconnectedCallback(),this.mql&&this.mql.removeListener(this.mediaQueryCallback),this._nestedComponent&&this._nestedComponent.removeEventListener("mesoAd",this._handleMesoAdEvents)}render(){return this._headerBiddingEnabled?l["c"]`<meso-prebid-ad
+          aria-label="Advertisement"
+          width="${this.width}"
+          height="${this.height}"
+          path="${this.path}"
+          slot="${this.slot}"
+          uci="${this.uci||""}"
+          ?enabled="${this.active}"
+          mediaquery="${this.mediaquery}"
+        ></meso-prebid-ad>
+       `:l["c"]`
+      <meso-default-display-ad
+        aria-label="Advertisement"
+        width="${this.width}"
+        height="${this.height}"
+        path="${this.path}"
+        slot="${this.slot}"
+        ?enabled=${this.active}
+        mediaquery="${this.mediaquery}"
+        experiments="${this.experiments}"
+        refocusrefresh=${this.refocusrefresh}
+      ></meso-default-display-ad>
+    `}_handleMesoAdEvents(e){this.dispatchEvent(new CustomEvent(e.type,{detail:e.detail}))}shouldUpdate(e){this.mediaquery!==e.mediaquery&&(this.mql&&this.mql.removeListener(this.mediaQueryCallback),this.mql=window.matchMedia(this.mediaquery),this.mql.addListener(this.mediaQueryCallback),this.mediaQueryCallback(this.mql));const t=Boolean(this.width&&this.height&&this.path&&this.slot),i=this.experiments&&this.experiments.indexOf(p)>-1;return t&&i&&null===this._experimentsPromise?(this._experimentsPromise=new u.a([p]).wait(),this._experimentsPromise.then(e=>{e&&1===e[p]&&(this._headerBiddingEnabled=!0)}).catch(e=>{s.a.error(e,{source:"display-ad",adunit:this.path})}).finally(()=>{this.requestUpdate()}),!1):t}get active(){return this.enabled&&this.visible}get visible(){return Boolean(this.offsetWidth||this.offsetHeight||this.getClientRects().length)}}Object(c.a)("meso-display-ad",m);window&&(window.meso=window.meso||{},window.meso.performance=window.meso.performance||[],window.addEventListener("message",e=>{const t="ad-performance-v1";if(!e||!e.data||!e.data[t])return;const i=e.data[t];i.error?s.a.error(e,{message:"An error occurred within the ad creative wrapper"}):i.performance&&window.meso.performance.push({type:"displayad",content:i})}));var f=i(28),g=i(29),y=i(15),v=i.n(y);const w=["star","lodging","regionId","travelerType","amenities"];class _ extends h.a{static get properties(){return{collapse:{type:Boolean},enabled:{type:Boolean},height:{type:Number},mediaquery:{type:String},path:{type:String},slot:{type:String},uci:{type:String},waitforadinfo:{type:Boolean},width:{type:Number},experiments:{type:String},refocusrefresh:{type:Number,hasChanged:(e,t)=>e!==t&&!isNaN(e)&&e>0}}}constructor(){super(),this._lastAdinfoUpdate=0,this._lastTargetingUpdate=0,this.collapse=!1,this._handleMesoAdEvents=this._handleMesoAdEvents.bind(this)}refreshAd(){const e=this.renderRoot.querySelector(`#${this._id()}`);e&&e.dispatchEvent(new CustomEvent("DisplayAdRefresh"))}mightWaitForPageLoad(){const e=()=>{window.addEventListener("load",()=>{this.loadEventFired=!0,this.requestUpdate()})},t=()=>(this.loadEventFired="complete"===document.readyState,this.loadEventFired);t()?this.requestUpdate():this.experiments&&this.experiments.indexOf("DISPLAY_AD_PERF")>-1?new u.a(["DISPLAY_AD_PERF"]).wait().then(i=>{!t()&&i&&1===i.DISPLAY_AD_PERF?e():(this.loadEventFired=!0,this.requestUpdate())}):e()}connectedCallback(){super.connectedCallback(),this.waitforadinfo=!0,this.mightWaitForPageLoad(),this.refreshcb=(()=>this.refreshAd()),document.addEventListener("DisplayAdRefresh",this.refreshcb),this.targetingEvent=(e=>{e&&e.detail&&"update"===e.detail.type&&(e.detail.targetingLastUpdated>this._lastTargetingUpdate&&(this._lastTargetingUpdate=e.detail.targetingLastUpdated,this.refreshAd()),e.detail.adinfoLastUpdated>this._lastAdinfoUpdate&&this.waitforadinfo&&(this._lastAdinfoUpdate=e.detail.adinfoLastUpdated,this.waitforadinfo=!1))}),document.addEventListener("MesoTargeting",this.targetingEvent),document.dispatchEvent(new CustomEvent("MesoTargeting",{detail:{type:"register"}})),this.emptySlotHandler=(e=>this.handleEmptySlot(e)),document.addEventListener("mesoCollapseEmptyDisplayAdSlot",this.emptySlotHandler),this.slotFilterUpdateEvent=v()(e=>{const t=e&&e.detail||{},i=t&&t.filterData&&t.filterData.name||"",n=t&&t.type||"",r=t&&t.editType;w.includes(i)&&s.a.info("ADREFRESH",{type:n,editType:r,filter:i,adId:this._id()})},0,{leading:!1,trailing:!0}),document.addEventListener("mesoSlotFilterUpdate",this.slotFilterUpdateEvent)}firstUpdated(){this._gptAd=this.shadowRoot.querySelector("meso-gpt-ad"),this._gptAd&&this._gptAd.addEventListener("mesoAd",this._handleMesoAdEvents)}disconnectedCallback(){super.disconnectedCallback(),this.refreshcb&&document.removeEventListener("DisplayAdRefresh",this.refreshcb),this.targetingEvent&&document.removeEventListener("MesoTargeting",this.targetingEvent),this.emptySlotHandler&&document.removeEventListener("mesoCollapseEmptyDisplayAdSlot",this.emptySlotHandler),this._impressionAdRefresh&&this._impressionAdRefresh.removeListeners(),this._adVisibility&&this._adVisibility.disconnectViewportListener(),this._gptAd&&this._gptAd.removeEventListener("mesoAd",this._handleMesoAdEvents),this.slotFilterUpdateEvent&&document.removeEventListener("mesoSlotFilterUpdate",this.slotFilterUpdateEvent)}_handleMesoAdEvents(e){this.dispatchEvent(new CustomEvent(e.type,{detail:e.detail}))}_id(){return`mesogpt-${this.uci||this.slot}`}render(){return l["c"]`
+      <meso-gpt-ad
+        aria-label="Advertisement"
+        id="${this._id()}"
+        class="md-da-gpt ${this.active?"enabled":""}"
+        style="max-width:${this.width}px;max-height:${this.height}px"
+        width="${this.width}"
+        height="${this.height}"
+        adpath="${this.path}"
+        ?enabled="${this.active}"
+        ?collapse=${this.collapse}
+      ></meso-gpt-ad>
+    `}shouldUpdate(e){return e.has("refocusrefresh")&&(this._impressionAdRefresh=new f.a(this,this.refocusrefresh),this._adVisibility=new g.a(this,()=>{this._impressionAdRefresh&&this._impressionAdRefresh.attachImpressionRefreshEventListener()})),Boolean(this.loadEventFired&&this.width&&this.height&&this.path&&this.slot)}handleEmptySlot(e){const t=e?e.detail:null;if(!e||!t||!t.slot)return;const i=t.slot;i.path===this.path&&i.height===this.height&&i.width===this.width&&(this.collapse=t.collapse||!1)}get active(){return this.enabled&&!this.waitforadinfo&&!this.collapse}static get styles(){return l["b"]`
+      .md-da-gpt {
+        display: none;
+      }
+
+      .md-da-gpt.enabled {
+        display: inline-block;
+      }
+    `}}Object(c.a)("meso-default-display-ad",_)}]);
+//# sourceMappingURL=meso-displayad.js.map

@@ -1,0 +1,140 @@
+page-booking {
+
+.main{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.678), rgba(0,0,0,0.5)),url(../../assets/imgs/rocks.jpeg);
+    background-size: cover;
+    background-position: center;
+    
+}
+
+.booking-form-box{
+    max-width: 350px;
+    border: 1px solid #ced4da;
+    margin: 10% auto 0;
+}
+.radio-btn{
+    margin: 0 20px
+}
+.radio-btn .btn{
+  margin: 20px 10px 20px 0;
+  box-shadow: none;  
+}
+.radio-btn .btn::after{
+    content: '';
+    height: 15px;
+    width: 15px;
+    top: -2px;
+    left: -1px;
+    background-color: #fff;
+    position: relative;
+    display: inline-block;
+    visibility: visible;
+    border-radius: 50%;
+
+}
+.radio-btn .btn:checked::after{
+    content: '';
+    background-color: #000;
+    transition: 0.5s;
+}
+.radio-btn span{
+    color: #fff;
+    margin-right: 5px;
+    font-size: 12px;
+}
+.booking-form1{
+   padding: 0 20px 20px;
+   display: flex;
+
+}
+
+.booking-form2{
+    padding: 0 20px 20px;
+    display: flex;
+ 
+ }
+.booking-form label{
+    margin-bottom: 5px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: #fff;
+}
+.input::placeholder{
+    color: #fff !important;
+}
+.input-grp{
+    width: 151px;
+    display: flexbox;
+}
+.form-control{
+    font-size: 12px !important;
+    border-radius: 0 !important;
+    color: #ffff !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+.select-date::-webkit-inner-spin-button,
+.select-date::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+}
+.select-date::-webkit-calender-picker-indicator{
+    background: transparent!important;
+}
+.custom-select{
+    color: #FFF!important;
+    font-size: 12px!important;
+    border: 1px solid #ced4da!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+    background: transparent!important;
+}
+
+.custom-select option{
+    color :#333;
+}
+
+.hotel{
+    width: 100% !important;
+    padding: 9px 0 !important;
+    font-size: 12px !important;
+    border: 1px solid #ced4da!important;
+    background: transparent!important;
+    box-shadow: none!important;
+    border-radius: 0!important;
+}
+.hotel:hover{
+background: #fff!important;
+color: #000!important;
+transition: 0.5s;
+}
+
+    .btn{
+      margin-top: 20px;
+    }
+
+    .btn{
+        margin-top: 40px;
+        background: #2196F3;
+        padding: 12px;
+        text-align: center;
+        color: #f8f8f8;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      #header{
+          color: white;
+          text-align: center;
+      }
+      .one{
+          color: white;
+      }
+.one{
+    display: flex;
+}
+p{
+    color: whitesmoke;
+    text-align: center;
+}
+}

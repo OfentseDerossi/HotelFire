@@ -1,0 +1,66 @@
+page-createprofile {
+
+    .container {
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Jura';
+      }
+    
+      p {
+        font-size: 40px;
+        color: rgb(163, 112, 16);
+        text-align: center;
+        position: relative;
+        top: -1%;
+      }
+    
+    .item{
+      position: relative;
+      top: -60px;
+    }
+    .icon{
+      width: 120px;
+      height: 170px;
+      margin-top: 100px;
+    }
+    
+      span {
+        font-weight: bold;
+      }
+    
+      .propic {
+        position: relative;
+        top: -8%;
+        background: linear-gradient(rgba(128, 128, 128, 0.308)), url('../../assets/imgs/181541.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 255px;
+        height: 255px;
+        border-radius: 50%;
+        border: 5px solid rgba(0, 0, 0, 0.432);
+        align-items: center;
+        overflow: hidden;
+        img {
+          width: 250px;
+          height: 250px;
+          border-radius: 50%;
+          position: relative;
+        }
+      }
+    
+      .item {
+        font-size: 20px;
+        position: relative;
+        top: 16px;
+    
+      }
+      button{
+       width: 80%;
+       border-radius: 20px;
+      }
+    }
+
+

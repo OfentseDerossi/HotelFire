@@ -1,0 +1,80 @@
+<!--
+  Generated template for the Room1Page page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Room1</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <h2>View More about the Room</h2>
+
+    
+      
+        <!-- <div *ngFor="let n of hotels" (click)="Room1Page(n)"> -->
+          <!-- {{n.name}} -->
+
+          <div>
+            <!-- <ion-icon name="football" item-start large></ion-icon> -->
+            <img src="{{room.image}}" class="img">
+            <ion-label class="label">Hotel Name:</ion-label>
+            <h2 style="color: black" class="font">{{room.name}}</h2>
+          </div>
+          <div >
+            
+              <ion-label class="label">Room Type:</ion-label>
+            <p style="color: black" class="font">{{room.desc}}</p>
+          </div>
+        
+          <div>
+            
+              <ion-label class="label">Price:</ion-label>
+            <h2 style="color:  black" class="font">ZAR, {{room.price}}</h2>
+          </div>
+
+          
+          <ion-label class="label">Description Of the Room:</ion-label>
+            <p style="color:  black" class="para">"{{room.full_desc}}"</p>
+         
+
+          <div>
+            
+              <ion-label class="label">Bathroom Availability:</ion-label>
+            <h2 style="color:  black" class="font">{{room.bathroom}}</h2>
+          </div>
+
+          <div>
+           
+              <ion-label class="label">Aneminities:</ion-label>
+            <h2 style="color:  black" *ngFor="let n of room.Amenities" class="font1">{{n}}</h2>
+          </div><br>
+
+          <div>
+            
+              <ion-label class="label">Parking Availability:</ion-label>
+            <h2 style="color:  black" class="font">{{room.parking}}</h2>
+          </div>
+          
+        
+          <div>
+            <p text-start>
+              <ion-icon name="locate" size="large" item-start large></ion-icon> Johannesburg, Braamfontien 
+            </p>
+            <div class="btn1">
+
+                <button ion-button (click)="BookingPage()" class="book1">
+                   
+                    Book Room
+                  </button> 
+
+            </div>
+
+  
+          </div>
+
+</ion-content>

@@ -1,0 +1,115 @@
+<!--
+  Generated template for the EditPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>edit</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+
+<!-- <div class="propic" (click)="selectImage()">
+    <img src="{{profileImage}}">
+  </div> -->
+  <ion-content padding>
+    <ion-list>
+      <ion-list-header> Edit Your Profile</ion-list-header>
+    </ion-list>
+
+    <!-- <ion-item>
+
+      <ion-label stacked>Full Name:</ion-label>
+      <ion-input type="text" [(ngModel)]="profile.fullname"></ion-input>
+      </ion-item>
+
+      <ion-label stacked>Email:</ion-label>
+      <ion-input type="text" [(ngModel)]="profile.email"></ion-input>
+      </ion-item>
+
+      <ion-label stacked>Phone Number:</ion-label>
+      <ion-input type="text" [(ngModel)]="profile.phone"></ion-input>
+      </ion-item>
+
+      <div class="button">
+        <button ion-button full color="dark" (click)="UpdatePro(userProfile)">Save</button> 
+      </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    </div> -->
+  
+    <div class="image" (click)="takePhoto(0)">
+        <img [src] = "image" alt="">
+    </div>
+    <ion-item >
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="text-left" size="5"> Name </ion-col>
+            <input type="text" [(ngModel)]="bookings.firstname">
+            <ion-col size="7" class="placeholder-profile text-center" *ngIf="!bookings?.firstName">         
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+  
+    <ion-item>
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="text-left" size="5"> Email </ion-col>
+            <input type="text" [(ngModel)]="bookings.email">
+            <ion-col size="7" class="placeholder-profile" class="text-center" *ngIf="!bookings?.email">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="text-left" size="5"> Phone </ion-col>
+            <input type="text" [(ngModel)]="bookings.phone">
+            <ion-col class="text-center" size="7" class="placeholder-profile">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item>
+  
+    <!-- <ion-item>
+      <ion-label>
+        <ion-grid>
+          <ion-row>
+            <ion-col class="text-left" size="5"> Bio </ion-col>
+            <input type="textarea" [(ngModel)]="userProfile.Bio">
+            <ion-col class="text-center" size="7" class="placeholder-profile">
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-label>
+    </ion-item> -->
+  
+    <div class="btn">
+      <button ion-button full color="dark" (click)="UpdatePro(bookings)">Save</button>
+      <button ion-button full id="cancel" (click)="cancel()">Cancel</button>
+    </div>
+
+    
+  
+   
+  </ion-content>
+  

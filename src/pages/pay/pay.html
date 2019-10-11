@@ -1,0 +1,111 @@
+<!--
+  Generated template for the PayPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title>Pay</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="pay">
+  
+    <div class="wrapper">
+        <div class="payment">
+          <div class="payment-logo">
+            <p>p</p>
+          </div>
+          
+          
+          <br><h2>Make Your Payment</h2>
+          <div class="form">
+              <form [formGroup]="credentialsForm">
+            <div class="card space icon-relative">
+                <ion-label stacked>Name on Card</ion-label>
+
+          <ion-input 
+            type="name" 
+            [class.invalid]="!credentialsForm.controls.cardholder.valid && blur"
+            [formControl]="credentialsForm.controls['cardholder']"
+            [(ngModel)]="payments.cardholder" class="input">
+          </ion-input>
+
+          <ion-item class="error-message" 
+          *ngIf="!credentialsForm.controls.cardholder.valid && credentialsForm.controls.cardholder.dirty"> 
+          <p style="color: red">Please enter name on card.</p> 
+          </ion-item>
+              
+                <!-- <input type="text" name="cardholder" class="input" placeholder="Coding Market"> -->
+              <i class="fas fa-user"></i>
+            </div>
+            <div class="card space icon-relative">
+              
+              <ion-label stacked class="label"> Your 16 digit Card Number</ion-label>
+              <!-- <input type="text" name="cardno" class="input" data-mask="0000 0000 0000 0000" placeholder="Card Number"> -->
+              
+              <ion-input 
+              type="number" 
+              [formControl]="credentialsForm.controls['cardno']"
+              [(ngModel)]="payments.cardno">
+              </ion-input>
+
+              <ion-item class="error-message" 
+              *ngIf="!credentialsForm.controls.cardno.valid && credentialsForm.controls.cardno.dirty"> 
+              <p style="color: red">Please enter 16 digit Card Number.</p> 
+              </ion-item>
+
+              <i class="far fa-credit-card"></i>
+            </div>
+            <div class="card-grp space">
+              <div class="card-item icon-relative">
+                <ion-label stacked class="label">Expiry Date</ion-label>
+                <!-- <input type="text" name="expirydate" class="input" data-mask="00 / 00"  placeholder="00 / 00"> -->
+                
+                <ion-datetime displayFormat="MM/YYYY"
+                min="2019-01"
+                max="2030-08"
+                type="date" 
+                [formControl]="credentialsForm.controls['expirydate']"
+                [(ngModel)]="payments.expirydate">
+              </ion-datetime>
+                
+                <ion-item class="error-message" 
+                *ngIf="!credentialsForm.controls.expirydate.valid && credentialsForm.controls.expirydate.touched"> 
+                <p style="color: red">Please select valid date, only future dates are allowed.</p> 
+                </ion-item>
+
+                
+                <i class="far fa-calendar-alt"></i>
+              </div>
+              <div class="card-item icon-relative">
+                  <ion-label stacked class="label">CVC</ion-label>
+                <!-- <input type="text" name="cvc" class="input" data-mask="000" placeholder="000"> -->
+                
+                <ion-input 
+                type="number" 
+                [formControl]="credentialsForm.controls['cvc']"
+                [(ngModel)]="payments.cvc" class="input">
+               </ion-input>
+
+               <ion-item class="error-message" 
+               *ngIf="!credentialsForm.controls.cvc.valid && credentialsForm.controls.cvc.touched"> 
+               <p style="color: red">CVV cannot exceed 3 numbers.</p> 
+                </ion-item>
+
+                <i class="fas fa-lock"></i>
+              </div>
+            </div>
+              
+            <div class="btn" (click)="pay()">
+              Pay
+            </div> 
+            </form>
+          </div>
+        </div>
+      </div>
+      
+         
+<!-- 
+</ion-content> -->

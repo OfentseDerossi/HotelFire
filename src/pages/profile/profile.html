@@ -1,0 +1,194 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!-- <ion-header>
+  <ion-navbar>
+    <ion-title>Profile</ion-title>
+  </ion-navbar>
+</ion-header> -->
+
+<ion-content>
+
+    <form [formGroup]="loginForm">
+
+   
+    <!-- <div class="container">
+        <div class="">
+    
+    
+          <div class="top">
+    
+            <div class="upload">
+              <div id="home" >
+    
+                <div class="back" (click)="gotolist()">
+                    <ion-icon name="arrow-back"></ion-icon>
+                </div>
+          
+                <div class="back1" (click)= "logout()">
+                    <ion-icon name="exit"></ion-icon>
+                </div>
+               
+              </div>
+              <img src="{{displayProfile.image}}">
+            </div>
+    
+            <div class="upload2">
+                <img src="{{displayProfile.image}}">
+                <div class="back1" (click)= "profile()">
+                    <ion-icon ios="ios-create" md="md-create"></ion-icon>
+                </div>
+            </div>
+          </div>
+    
+          <div class="details">
+            <div class="view">
+              <div class="name">
+                <p id="fullname">{{Profile.fullname}}</p>
+                <p id="username">{{Profile.Bio}}</p>
+              </div>
+              <div class="other">
+                <p id="number">{{Profile.phone}}</p>
+                <p id="email">{{Profile.email}}</p>
+              </div>
+            </div>
+    
+            <p class="bhist">Booking History</p>
+            <div class="body">
+              <div class="book" *ngIf="showComp">
+                <p>YOU DO NOT HAVE <br> ANY BOOKINGS YET</p>
+              </div>
+              <div class="history" *ngFor="let n of displayBooking">
+    
+                <div class="roomname">
+                  <p class="rname">{{n.roomName}}</p>
+                </div>
+               
+                <div class="extras">
+                  <div class="dates">
+    
+                    <p> {{n.nodays}} night(s) at our {{n.roomName}} suite<br> 
+                      from {{n.date1}} to {{n.date2}}. <br>
+                    </p>
+                  </div>
+    
+                  <hr>
+                </div> 
+    
+
+              </div>
+    
+            
+            </div>
+          </div>
+        </div>
+      </div> -->
+      
+      <ion-fab *ngIf="isProfile" clear top left></ion-fab>
+      <div class="back" (click)="gotolist()">
+          <ion-icon name="arrow-back"></ion-icon>
+      </div>
+
+      <ion-fab clear top right>
+          <button *ngIf="isProfile" clear color="danger" ion-fab (click)= "logout()" >Signout</button>
+        </ion-fab>
+     
+
+      
+      <div *ngIf="!isProfile" class="backImg">
+
+
+
+       
+         <div class="profile">
+            
+         
+
+          <div class="profileText">
+              <h2 id="heading">Personal Information</h2>
+              <br>
+
+              <img src="{{profiles.image}}">
+              <button (click) = "takePhoto(0)" class="img"><ion-icon ios="ios-images" md="md-images" class="icon"></ion-icon></button>
+              <!-- <div *ngIf="profiles.image" class="back1" (click)= "profilee()">
+                <ion-icon ios="ios-create" md="md-create"></ion-icon>
+            </div> -->
+             
+            <!-- <div **ngFor="let profile of bookings"> -->
+              
+                <ion-item>
+                    <!-- <ion-label floating> Full Name</ion-label> -->
+                    
+                    
+                  <ion-input type="text" formControlName="fullname" [(ngModel)]="profiles.fullname" id="fullname"></ion-input>
+                
+                  <div class="error" *ngFor="let validate of validation_messages.fullname">
+                      <div class="messages" 
+                      *ngIf="loginForm.get('fullname').hasError(validate.type) && (loginForm.get('fullname').dirty || loginForm.get('fullname').touched)">
+                        {{validate.message}}
+                      </div>
+                    </div>
+                
+                </ion-item>
+
+
+                  <ion-item>
+                      <!-- <ion-label floating> Email</ion-label> -->
+                      <ion-input type="text" formControlName="email" [(ngModel)]="profiles.email" id="fullnames"></ion-input>
+                    
+                      <div class="error" *ngFor="let validate of validation_messages.email">
+                          <div class="messages" 
+                          *ngIf="loginForm.get('email').hasError(validate.type) && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                            {{validate.message}}
+                          </div>
+                        </div>
+                    
+                    </ion-item>
+
+                    <ion-item>
+                        <!-- <ion-label floating> Phone Number</ion-label> -->
+                        <ion-input type="text" formControlName="phone" [(ngModel)]="profiles.phone" id="fullname"></ion-input>
+                      
+                                                
+                        <div class="error" *ngFor="let validate of validation_messages.phone">
+                            <div class="messages"
+                            *ngIf="loginForm.get('phone').hasError(validate.type) && (loginForm.get('phone').dirty || loginForm.get('phone').touched)">
+                              {{validate.message}}
+                            </div>
+                          </div>                        
+
+                      
+                      </ion-item>
+              
+
+            <!-- <h3 id="fullname"><b>{{profiles.fullname}}</b></h3>
+            <h3  id="fullnames">{{profiles.email}} </h3>
+            <h3 id="fullname">{{profiles.phone}} </h3> -->
+
+          </div>
+
+      </div>
+      <br>
+      <br>
+      
+
+      <div class="profileText1">
+          <h2 id="heading">Bookings Information</h2>
+          <br>
+          <p id="fullname1"><b>Room Type:</b>{{profiles.roomtype}} </p>
+          <p id="fullname1"> <b>Total Amount:</b>  R {{profiles.totalAmount}} </p>
+          <p id="fullname1"> <b>Number Of Nights:</b> {{profiles.numberofdays}} </p>
+      </div>
+
+    </div>
+
+    <button ion-button large clear full center type="submit" (click)="createUser()">Done</button>
+  </form>
+
+     
+
+
+<!-- </ion-content> -->

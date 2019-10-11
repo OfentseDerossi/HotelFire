@@ -1,0 +1,48 @@
+page-room1 {
+    .icon{
+        width: 30px;
+        height: 30px;
+    }
+    .para{
+        background-color: white;
+        border: none;
+        padding: 15px;
+        
+    }
+    .img{
+       height: 240px;
+       width: 700px; 
+    }
+   .font{
+       font-size: 14px;
+
+   }
+
+   .font1{
+    font-size: 14px;
+    line-height: 05px;
+    
+}
+.label{
+    font-weight: bolder;
+    color: rgb(24, 83, 209);
+    font-family: sans-serif;
+}
+.book1{
+   align-items: center;
+   align-content: center; 
+   border-radius: 20px;
+   width: 120px;
+   font-size: 14px;
+
+
+}
+.btn1 {
+    display: block;
+    // max-width: 150px;
+    margin: auto;
+    text-align: center;
+    
+  }
+
+}

@@ -1,0 +1,2 @@
+($WP="undefined"!=typeof $WP?$WP:[]).push({id:"@ta/common.memoize",e:["./packages/common/memoize/memoize.jsx"],x:{"./packages/common/memoize/memoize.jsx":["memoizeLast","default"]},m:{"./packages/common/memoize/memoize.jsx":function(e,m,o){"use strict";o.r(m),o.d(m,"memoizeLast",function(){return n});var n=function e(m){var o,n,i=!1;return function(e){return e===n&&i?o:(i=!0,o=m(e),n=e,o)}};m.default={}}}});
+//# sourceMappingURL=common.memoize.0cd6bf9682.js.map

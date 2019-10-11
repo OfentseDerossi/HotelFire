@@ -1,0 +1,45 @@
+
+    (function () {
+        var s = document.createElement('script');
+        var p = "var i = document.createElement('img');\
+    i.setAttribute('alt', '');\
+    i.setAttribute('height', '1');\
+    i.setAttribute('width', '1');\
+    i.setAttribute('style', 'display: none;');\
+    i.setAttribute('src', 'https://ad.doubleclick.net/ddm/activity/src=5387546;type=sales;cat=tripa00;qty=1;cost=0;u1=;u4=;u5=;u6=2;u9=1;u10=Greater+Johannesburg;u11=ZA;u12=1;u13=;dc_lat=;dc_rdid=;tag_for_child_directed_treatment=;npa=;ord=[OrderID]');\
+    document.body.appendChild(i);\
+    ";
+
+        s.type = 'text/javascript';
+        s.async = true;
+        if (s.textContent) {
+            s.textContent = p;
+        } else {
+            s.text = p;
+        }
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    })();
+    
+    (function () {
+        var s = document.createElement('script');
+        var p = "var i = document.createElement('img');\
+    i.setAttribute('alt', '');\
+    i.setAttribute('height', '1');\
+    i.setAttribute('width', '1');\
+    i.setAttribute('style', 'display: none;');\
+    i.setAttribute('src', 'https://cm.g.doubleclick.net/pixel?google_nid=sojern__adx_open_bidder_seat&google_hm=LU9vVOMguIwHJGfydt9ytA&google_cm&google_sc&sjrn_id=TRDElz2vNGNUFr2_qJDmZbxKowKp1vCpwwruNS3fu2Zc4N_mF61GGOjlugtREeUQ&sjrn_ula=211486806');\
+    document.body.appendChild(i);\
+";
+
+        s.type = 'text/javascript';
+        s.async = true;
+        if (s.textContent) {
+            s.textContent = p;
+        } else {
+            s.text = p;
+        }
+        var x = document.getElementsByTagName('script')[0];
+        x.parentNode.insertBefore(s, x);
+    })();
+    

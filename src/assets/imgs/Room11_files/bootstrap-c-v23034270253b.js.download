@@ -1,0 +1,3 @@
+require(['ta/rollupAmdShim'], function(rollupAmdShim) {rollupAmdShim.install(["pre_rollup_globals_shim"],["page-model"]);});
+if(window.requirejs && requirejs.taConfig)requirejs.taConfig({"deferred":{},"name":"build/concat/bootstrap","files":{"js3":{"src":{"pre_rollup_globals_shim":1}}},"_":{"baseUrl":"/"}});
+define("pre_rollup_globals_shim",["page-model"],function(o){var _=o.session,e=o.DUST_GLOBAL;!function(n){n.CDNHOST=_.cdnHost,n.cdnHost=_.cdnHost,n.cookieDomain=_.cookieDomain,n.pageServlet=_.pageServlet,n.MEDIA_HTTP_BASE=_.MEDIA_HTTP_BASE,n.POINT_OF_SALE=e.LOCALE,n.IS_DEBUG=e.DEBUG,n.JS_SECURITY_TOKEN=o.JS_SECURITY_TOKEN}(window)});

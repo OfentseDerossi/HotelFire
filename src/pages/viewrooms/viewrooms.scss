@@ -1,0 +1,36 @@
+page-viewrooms {
+    .yes{
+        align-items: flex-start;
+        font-family: sans-serif
+    }
+    .ion-header{
+        display: flex;
+        flex-direction: column;
+
+    }
+    .top{
+        display: flex;
+        flex-direction: column;
+        justify-content: center
+        
+        
+    }
+    .one{
+        justify-content: flex-start;
+        font-size: 50px;
+        font-family: sans-serif   
+    }
+    .two{
+        justify-content: flex-end;
+        justify-content: center;
+        align-items:center
+
+        
+    }
+    .too{
+        justify-content: center;
+        align-items: center
+    }
+
+
+}

@@ -1,0 +1,2 @@
+($WP="undefined"!=typeof $WP?$WP:[]).push({id:"@ta/common.cookie",d:["vendor-common"],e:["./packages/common/cookie/index.jsx"],x:{"./packages/common/cookie/index.jsx":["setPIDCookie","default"]},m:{"./packages/common/cookie/index.jsx":function(e,o,n){"use strict";n.r(o),n.d(o,"setPIDCookie",function(){return t});var i=n("js-cookie"),c=n.n(i),t=function e(o,n){if(o){var i=new Date((new Date).getTime()+5e3);c.a.set("NPID",o,{expires:i,path:"/",domain:n})}};o.default={}}}});
+//# sourceMappingURL=common.cookie.7e5f88961d.js.map

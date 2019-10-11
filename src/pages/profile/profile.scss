@@ -1,0 +1,308 @@
+@import url('https://fonts.googleapis.com/css?family=Lato|Teko|Abel|Anton|Dosis|Oxygen|Jura|Pacifico|Righteous|Roboto+Condensed|Ubuntu|Open+Sans+Condensed');
+page-profile {
+  *{
+    padding: 0;
+    margin: 0;
+  }
+  .ion-content{
+    padding: 0;
+    margin: 0;
+    width: 1900%;
+  }
+  .ion-input{
+    border-style: none;
+    background-color: transparent
+  }
+  // .icon{
+  //   width: 120px;
+  //   height: 170px;
+  //   margin-top: 100px;
+  // }
+  .ion-item{
+    background-color: transparent
+  }
+  .backImg{
+    width: 100%;
+    height: 570px;;
+    // background-image: url(../../assets/imgs/percy3.jpg);
+    background-size: cover;
+    // display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+  }
+  .profile{
+    width: 500px;
+    background-color: rgba(0,0,0,0.4);
+    align-items:center;
+    justify-content: center;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    height: 420px;
+    margin-top: -30px;
+    border-radius: 10%;
+  }
+  img{
+    height: 200px;
+    border-radius: 50%;
+    width: 200px;
+    margin-left: 6%;
+    
+    
+  }
+  #fullname{
+    margin-left: 24%;
+    font-family: 'Jura';
+    font-size: 15px;
+    // color: rgb(0, 119, 255);
+    
+  }
+  // #fullname1{
+  //   color: rgb(80, 78, 78)
+  // }
+
+  #fullnames{
+    font-family: 'Jura';
+    font-size: 15px;
+    margin-left: 6%
+  }
+  // #heading1{
+  //   font-family: 'Jura';
+    
+    
+  // }
+  #heading{
+    font-family: 'Jura';
+  }
+
+  .profileText1{
+  color: rgb(80, 78, 78);
+  margin-left: 2%;
+  font-family: 'Jura';
+  }
+  .fullname1{
+    margin-left: 24%;
+    font-family: 'Jura';
+    font-size: 15px; 
+  }
+  .top{
+    display: flex;
+    flex-direction: column
+  }
+    // .container {
+    //     display: flex;
+    //     flex-flow: column;
+    //     justify-content: center;
+    //     align-items: center;
+    
+    //   }
+    
+    // .top {
+    //     position: relative;
+    //     background: black;
+    //     height: 450px;
+    //     width: 100%;
+    
+    // .upload {
+    //       height: 100%;
+    //       width: 100%;
+    //       object-fit: cover;
+    
+    //       .back1 {
+    //         position: absolute;
+    //         left: 370px;
+    //         top: 1.5px;
+    
+    
+    //         .icon {
+    //           width: 100%;
+    //           height: 100%;
+    //           object-fit: cover;
+    //           padding: 5px;
+    //           color: rgba(250, 245, 245, 0.541);
+    //           font-size: 30px;
+    
+    //         }
+    //       }
+    
+    //       .back {
+    //         .icon {
+    //           color: rgba(250, 245, 245, 0.541);
+    //         }
+    //       }
+    
+    
+    //       #home {
+    //         z-index: 5;
+    //         position: absolute;
+    //         color: rgba(255, 255, 255, 0.774);
+    //         font-size: 25px;
+    //         padding: 10px;
+    //         display: flex;
+    //         flex-flow: row;
+    //         justify-content: space-between;
+    
+    
+    
+    //       }
+    
+    //       img {
+    //         filter: blur(2px);
+    //         -webkit-filter: blur(1.5px);
+    //         height: 100%;
+    //         width: 100%;
+    //         object-fit: cover;
+    //         opacity: 0.5;
+    
+    //       }
+    //     }
+    
+    //     .upload2 {
+    //       z-index: 3;
+    //       // border: 5px solid rgba(255, 255, 255, 0.466);
+    //       // border-radius: 50%;
+    //       display: flex;
+    //       flex-flow: row;
+    //       justify-content: center;
+    //       align-items: center;
+    //       position: relative;
+    //       bottom: 90%;
+    
+    //       .back1 {
+    //         position: absolute;
+    //         left: 70px;
+    //         top: 40px;
+    //         border: 3px solid white;
+    //         border-radius: 50%;
+    //         text-align: center;
+    //         width: 50px;
+    //         height: 50px;
+    
+    //         .icon {
+    //           width: 100%;
+    //           height: 100%;
+    //           object-fit: cover;
+    //           padding: 5px;
+    //           color: white;
+    //           font-size: 28px;
+    //           text-align: center;
+    //           background: rgba(170, 135, 60, 0.774);
+    //           border-radius: 50%;
+    //         }
+    //       }
+    
+    //       img {
+    //         height: 250px;
+    //         width: 250px;
+    //         border-radius: 50%;
+    //         border: 5px solid rgba(255, 255, 255, 0.466);
+    //         border-radius: 50%;
+    //       }
+    
+    //       .home {
+    //         color: white;
+    //         font-size: 30px;
+    //       }
+    //     }
+    //   }
+    
+    //   .details {
+    //     height: 60vh;
+    //     z-index: 5;
+    //     position: relative;
+    //     bottom: 185px;
+    //     text-align: center;
+    
+    
+    //     .name {
+    //       #fullname {
+    //         color: white;
+    //         font-size: 30px;
+    //         font-family: 'Dosis';
+    //       }
+    
+    //       #username {
+    //         color: white;
+    //         font-size: 12px;
+    //         margin: 0;
+    //         font-family: 'Dosis';
+    //       }
+    //     }
+    
+    //     .other {
+    //       display: flex;
+    //       flex-flow: row;
+    //       justify-content: space-between;
+    //       margin: 0px 10px;
+    //       color: white;
+    //       font-family: 'Dosis';
+    //     }
+    //   }
+    
+    //   .bhist {
+    //     font-weight: bold;
+    //     overflow-y: auto;
+    //     font-size: 25px;
+    //     align-content: flex-start !important;
+    //   }
+    
+    
+    
+    //   .body {
+    //     font-family: 'Dosis';
+    
+    //     .history {
+    //       display: flex;
+    //       flex-flow: row;
+    //       justify-content: space-evenly;
+    //       border-radius: 10px;
+    //       // border: 1px solid black;
+    //       margin: 15px;
+    //       background: rgba(184, 182, 182, 0.329);
+    //       box-shadow: 5px 8px 10px #a5a5a59d;
+    //       .roomname {
+    //         flex-grow: 1;
+    //         color: rgb(131, 83, 12);
+    //         font-size: 20px;
+    //         position: relative;
+    //         top: 12px;
+    //         left: 10px;
+    
+    //         .rname {
+    //           font-family: 'Pacifico';
+    //         }
+    //       }
+    
+    //       .extras {
+    //         flex-grow: 2;
+    //         font-size: 17px;
+    //         display: flex;
+    //         flex-flow: column;
+    //         align-items: flex-end;
+    //         justify-content: baseline;
+    //         padding: 5px;
+    //         margin: 0px 15px;
+    
+    //         .dates {
+    //           display: flex;
+    //           flex-flow: row;
+    
+    //           span {
+    //             color: black;
+    //             font-weight: bold;
+    //           }
+    //         }
+    
+    //         #days {
+    //           position: relative;
+    //           bottom: 30px;
+    //         }
+    //       }
+    
+    //     }
+    
+}

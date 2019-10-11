@@ -1,0 +1,2 @@
+($WP="undefined"!=typeof $WP?$WP:[]).push({id:"@ta/overlays.shift",d:["vendor-react-libs"],e:["./packages/overlays/shift/Shift.jsx"],x:{"./packages/overlays/shift/Shift.jsx":["default"]},m:{"./packages/overlays/shift/Shift.jsx":function(t,e,a){"use strict";a.r(e);var s=a("react"),r=function t(e){var a=e.x,r=e.y,f=e.children;return s.createElement("div",{style:{transform:"translate(".concat(a,"px, ").concat(r,"px)")}},f)};r.defaultProps={x:0,y:0},e.default=r}}});
+//# sourceMappingURL=overlays.shift.660b6987d5.js.map

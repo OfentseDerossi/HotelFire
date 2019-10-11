@@ -1,0 +1,41 @@
+page-edit {
+
+    .list {
+        text-align: center;
+    
+        .list-header {
+          color: rgb(170, 135, 60);
+          font-size: 30px;
+        }
+      }
+    
+      .grid {
+        .row {
+          input {
+            border: none;
+          }
+        }
+      }
+    
+      .image {
+        background: linear-gradient(rgba(128, 128, 128, 0.596)), url('../../assets/imgs/181541.png');
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 200px;
+        height: 200px;
+        border: 5px solid rgb(0, 0, 0);
+        border-radius: 50%;
+        position: relative;
+        left: 25%;
+        overflow: hidden;
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+      }
+      #cancel{
+          background: rgb(170, 135, 60);
+      }
+}

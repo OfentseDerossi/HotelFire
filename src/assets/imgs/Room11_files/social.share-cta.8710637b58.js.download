@@ -1,0 +1,2 @@
+($WP="undefined"!=typeof $WP?$WP:[]).push({id:"social.share-cta",d:["vendor-redux-libs","@ta/public.share-cta"],e:["./roots/social/share-cta/ShareCta.jsx"],x:{"./roots/social/share-cta/ShareCta.jsx":["default"]},m:{"./roots/social/share-cta/ShareCta.jsx":function(a,e,t){"use strict";t.r(e);var r=t("react-redux"),i=t("@ta/public.share-cta");e.default=Object(r.connect)(function(a){return{url:a.meta.initialAbsoluteUrl,itemType:a.meta.initialServletName,itemId:a.page.detailId||"0"}})(i.ShareCta)}}});
+//# sourceMappingURL=social.share-cta.8710637b58.js.map
